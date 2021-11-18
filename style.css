@@ -17,7 +17,8 @@ header {
     padding-top: 8em;
 }
 form{
-    margin: 2em auto;
+    margin: 1em auto;
+    padding: 2em .1em;
     background-color: wheat;
     border: 1px solid saddlebrown;
     border-radius: 8px;
@@ -52,7 +53,8 @@ h1 {
     opacity: 70%;
 }
 h2{
-    margin-bottom: .1em;
+    margin-top: 0;
+    margin-bottom: .5em;
     text-align: center;
 }
 h3, h4 {
