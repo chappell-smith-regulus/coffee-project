@@ -71,6 +71,25 @@ img{
     border-radius: 10px;
     transition: height 2s, width 2s;
 }
+footer{
+    height: 84px;
+    margin-bottom: 2em;
+    padding: 0.5em;
+    background-color: #111111;
+    color: wheat;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+footer i{
+    color: antiquewhite;
+    margin: auto 2em;
+}
+footer a{
+    text-decoration: none;
+    color: antiquewhite;
+}
 /* Navbar Styles */
 .nav {
     background-color: lightgrey;
