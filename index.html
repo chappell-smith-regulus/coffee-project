@@ -10,24 +10,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- Nav Bar-->
     <div class="nav">
         <ul class="navbar-list">
-            <li class="list-item-coffee">
-                <a class="link-coffee" href="#"><i class="fas fa-charging-station"></i> Cafe Caffeine </a>
+            <li><a id="list-item-coffee" href="#"><i class="fas fa-charging-station"></i> Cafe Caffeine </a>
             </li>
-            <li class="list-item-about">
-                <a class="link-about" href="#">About</a>
+            <li><a href="#">About</a>
             </li>
-            <li class="list-item-order">
-                <a class="link-order" href="#">Contact</a>
+            <li><a href="#">Contact</a>
             </li>
-            <li class="list-item-sign">
-                <a class="link-sign" href="#"><i class="fas fa-mug-hot"></i> Sign Up</a>
+            <li><a href="#"><i class="fas fa-mug-hot"></i> Sign Up</a>
             </li>
         </ul>
     </div>
-<div id="main-content">
+<!-- Content Limiter and Centering Container-->
     <div id="main-content">
+        <!-- Header- Image, Stripe-Title & Fixed Twitter Anchor-->
         <header>
             <div id="twitter-fixed">
                 <p id="dismissal">Click here to Dismiss</p>
@@ -35,15 +33,18 @@
             </div>
             <h1>Coffee!</h1>
         </header>
+    <!-- Main Content Sub-container-->
         <div id="container">
+            <!-- Div Containing all Function-Forms-->
             <div id="functions">
-                <form class="content">
+                <!-- Search-Form -->
+                <form class="content" id="form-srch">
                     <h2>Search our Coffees</h2>
-                    <label for="site-search">By Name:</label>
-                        <input type="search" id="site-search" />
+                    <label class="my-inputs" for="site-search">By Name:</label>
+                        <input class="my-inputs" type="search" id="site-search" />
                     <br>
-                    <label id="roast-filter-label" for="roast-selection">By Roast:</label>
-                        <select id="roast-selection">
+                    <label class="my-inputs" for="roast-selection">By Roast:</label>
+                        <select class="my-inputs" id="roast-selection">
                             <option>all</option>
                             <option>light</option>
                             <option>medium</option>
@@ -51,60 +52,75 @@
                         </select>
                 </form>
                 <br>
-                <hr>
-                <form class="content">
+                <!-- Add-Coffee-Form -->
+                <form class="content" id="form-add">
                     <h2>Add a Coffee to our Menu!</h2>
-                    <label for="add-coffee">Name:</label>
-                        <input type="text" id="add-coffee">
+                    <label class="my-inputs" for="add-coffee">Name:</label>
+                        <input class="my-inputs" type="text" id="add-coffee">
                     <br>
-                    <label for="added-roast">Roast:</label>
-                        <select id="added-roast">
+                    <label class="my-inputs" for="added-roast">Roast:</label>
+                        <select class="my-inputs" id="added-roast">
                             <option>light</option>
                             <option>medium</option>
                             <option>dark</option>
                         </select>
                     <br>
-                    <input id="submit" type="submit"/>
+                    <input class="my-inputs" id="submit" type="submit"/>
                 </form>
-                <hr>
-                <div id="order-now">Caffeinate Now!</div>
+                <!-- Order Form:Show Button-->
+                <div class="spec-buttons" id="order-now">Caffeinate Now!</div>
+                <!-- Order-Coffee-Form -->
+                <form class="content" id="order-form">
+                    <h2>Order Here</h2>
+                    <br>
+                    <label for="quantity">Qty:</label>
+                        <input type="number" id="quantity" name="quantity" min="1" max="5" value="1">
+                    <label for="coffee-name">Size:</label>
+                    <select id="coffee-size">
+                        <option value="1">Big - 32 oz</option>
+                        <option value="2">Huge - 64 oz</option>
+                        <option value="3">Galon - 128 oz</option>
+                    </select>
+                    <br>
+                    <label class="my-inputs" for="coffee-name">Coffee:</label>
+                        <select id="coffee-name">
+                            <option>Light City, roast: light</option>
+                            <option>Half City, roast: light</option>
+                            <option>Cinnamon, roast:light</option>
+                            <option>City, roast: medium</option>
+                            <option>American, roast: medium</option>
+                            <option>Breakfast, roast: medium</option>
+                            <option>High, roast: dark</option>
+                            <option>Continental, roast: dark</option>
+                            <option>New Orleans, roast: dark</option>
+                            <option>European, roast: dark</option>
+                            <option>Espresso, roast: dark</option>
+                            <option>Viennese, roast: dark</option>
+                            <option>Italian, roast: dark</option>
+                            <option>French, roast: dark</option>
+                    </select>
+                    <div id="price-total"></div>
+                    <input class="my-inputs" id="order" type="submit" value="Order"/>
+                </form>
+                <div id="size-guide">
+                    <div class="row"><h2>Size Guide</h2>
+                    </div>
+                    <div class="row">
+                        <div><img src="img/big.jpeg" alt="a large coffee mug" id="big-coffee">
+                        </div>
+                        <div><img src="img/80.jpeg" alt="an IV bag full of coffee" id="huge-coffee">
+                        </div>
+                        <div><img src="img/64.jpeg" alt="a huge coffee mug" id="galon-coffee">
+                        </div>
+                    </div>
+                    <div class="row" id="size-descript">Click on a Size for Information</div>
+                </div>
+                <div class="spec-buttons" id="back-to-search">Return to Search</div>
             </div>
             <!--Leave "#coffees" Div Alone for Document Rendering -->
             <div id="coffee-container">
                 <div class="content" id="coffees"></div>
             </div>
-        </div>
-        <div class="order-container">
-            <form class="order-form">
-                <h2>Order Here</h2>
-                <br>
-                <label for="order-coffee">Coffee:</label>
-                <select id="order-coffee">
-                    <option>Light City, roast: light</option>
-                    <option>Half City, roast: light</option>
-                    <option>Cinnamon, roast:light</option>
-                    <option>City, roast: medium</option>
-                    <option>American, roast: medium</option>
-                    <option>Breakfast, roast: medium</option>
-                    <option>High, roast: dark</option>
-                    <option>Continental, roast: dark</option>
-                    <option>New Orleans, roast: dark</option>
-                    {<option>European, roast: dark</option>
-                    {<option>Espresso, roast: dark</option>
-                    {<option>Viennese, roast: dark</option>
-                    {<option>Italian, roast: dark</option>
-                    {<option>French, roast: dark</option>
-                </select>
-                <br>
-                <h3>Select Size</h3><br>
-                <label for="select-big">Big</label>
-                <input class="size-input" type="radio" name="radio" id="select-big" value="big"><br>
-                <label for="select-huge">Huge</label>
-                <input class="size-input" type="radio" name="radio" id="select-huge" value="huge"><br>
-                <label for="select-ochenta">Ochenta</label>
-                <input class="size-input" type="radio" name="radio" id="select-ochenta" value="0chenta" checked><br>
-                <input id="order" type="submit" value="Order"/>
-            </form>
         </div>
     </div>
 <script src="main.js"></script>

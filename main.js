@@ -24,7 +24,6 @@ function renderCoffee(coffee) {
     }
     return html;
 }
-
 function renderCoffees(coffees) {
     var html = '';
     for(var i = 0; i < coffees.length; i++) {
@@ -32,7 +31,6 @@ function renderCoffees(coffees) {
     }
     return html;
 }
-
 function updateCoffees(e) {
     //e.preventDefault(); // don't submit the form, we just want to update the data
     var filteredCoffees = [];
@@ -40,7 +38,6 @@ function updateCoffees(e) {
     if (typeof userSearch !== 'undefined') {
         var searchStringLC = userSearch.toLowerCase();
     }
-
     coffees.forEach(function(coffee) {
         var localCoffee = coffee.name.toLowerCase();
         if(localCoffee.includes(searchStringLC) && ((coffee.roast === selectedRoast)||(selectedRoast === 'all'))){
@@ -49,7 +46,7 @@ function updateCoffees(e) {
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
-
+// Defining the Default Coffee Objects Array
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
@@ -68,17 +65,18 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
+// The following code block shifts the displayed coffee list to those that match the current search criteria
+// based on the current roast value selected AND the current search string. Both functions are on "input"
+// and so are responsive as the search is typed without the need for submission.
 var tbody = document.querySelector('#coffees');
 var roastSelection = document.querySelector('#roast-selection');
 var inputDetect = document.querySelector('#site-search');
 tbody.innerHTML = renderCoffees(coffees);
-
 inputDetect.addEventListener('input', updateSearch);
 function updateSearch(e) {
     userSearch = e.target.value;
     updateCoffees();
 }
-
 roastSelection.addEventListener('input', updateCoffees);
 
 // IMPLEMENTING ADD COFFEE FORM FUNCTIONALITY ///
@@ -98,20 +96,19 @@ function coffeeAdd () {
     console.log(coffees);
     updateCoffees();
 }
+
 function capitalizeNames(string){
     var name = string.split(' ');
     var secondWord = '';
     if(name.length === 2){
-        var secondWord = name[1];
-        var capitalizedSecondWord = secondWord[0].toUpperCase() + secondWord.substring(1);
-        secondWord = capitalizedSecondWord;
+        secondWord = name[1];
+        secondWord = secondWord[0].toUpperCase() + secondWord.substring(1);
     }
     var firstWord = name[0];
     var capitalizedFirstWord = firstWord[0].toUpperCase() + firstWord.substring(1);
     return capitalizedFirstWord + " " + secondWord;
 }
 //// LOCAL STORAGE ADD TO CURRENT ARRAY AND DISPLAY //////
-
 window.onload = function(){
     let storedCoffee = JSON.parse(localStorage.getItem('coffees'));
     console.log(storedCoffee);
@@ -121,17 +118,67 @@ window.onload = function(){
     updateCoffees();
 }
 
+// All following media Queries and event listeners are for display-switching for the twitter pop-up
+// order form, and coffee size descriptions.
 const banishTweet = document.querySelector('#dismissal');
 const tweetyDiv = document.querySelector('#twitter-fixed');
 banishTweet.addEventListener('click', function (event) {
     tweetyDiv.style.display = 'none';
 });
+
+
 const orderNow = document.querySelector('#order-now');
-const functionDiv = document.querySelector('#functions');
-const cofvefe = document.querySelector('#coffees');
-const coffeeDiv = document.querySelector('#coffee-container');
+const functionSrch = document.querySelector('#form-srch');
+const functionAdd = document.querySelector('#form-add');
+const sizeGuide = document.querySelector('#size-guide');
+const functionOrder = document.querySelector('#order-form');
+const backButton = document.querySelector('#back-to-search');
+const bigImg = document.querySelector('#big-coffee');
+const hugeImg = document.querySelector('#huge-coffee');
+const galonImg = document.querySelector('#galon-coffee');
+const sizeDescription = document.querySelector('#size-descript');
 orderNow.addEventListener('click', function (event) {
-    functionDiv.style.display = 'none';
-    coffeeDiv.style.width = '100%';
-    //cofvefe.style.max-width = '952px';
+    functionSrch.style.display = 'none';
+    functionAdd.style.display = 'none';
+    orderNow.style.display = 'none';
+    functionOrder.style.display = 'block';
+    backButton.style.display = 'block';
+    sizeGuide.style.display = 'block';
 });
+backButton.addEventListener('click', function (event) {
+    functionSrch.style.display = 'block';
+    functionAdd.style.display = 'block';
+    orderNow.style.display = 'block';
+    functionOrder.style.display = 'none';
+    backButton.style.display = 'none';
+    sizeGuide.style.display = 'none'
+});
+bigImg.addEventListener('click', function (event) {
+    sizeDescription.innerHTML = "Our Smallest Coffee, the 32 ounce 'Big', is recommended as the maximum size " +
+        "for people with heart conditions or other underlying health issues, for that great KICK! you need in " +
+        "the morning!";
+});
+hugeImg.addEventListener('click', function (event) {
+    sizeDescription.innerHTML =  "Our mid-sized Coffee, the 64 oz 'Huge', about half of a gallon, is our most popular" +
+        " amongst 'Essential Workers', conveniently packaged in an IV bag for immediate effect. Also Compatible with" +
+        " common hydration packs, and always available with a 25% discount to all Essential Workers, Military, " +
+        "Government, Law Enforcement, and First Responders.";
+});
+galonImg.addEventListener('click', function (event) {
+    sizeDescription.innerHTML = "Our Largest Coffee, the Galon, is 1 full gallon, 128 ounces of pure joy. Enough " +
+        "even for those who are desensitized to normal caffeine doses. Available in various industrial containers" +
+        " to-go, or in our trademark Easy-Share-Bowl Mugs";
+});
+
+var priceTotal = document.querySelector('#price-total');
+var sizeToBuy = document.querySelector('#coffee-size');
+var qtyToBuy = document.querySelector('#quantity');
+sizeToBuy.addEventListener('input', updatePrice);
+qtyToBuy.addEventListener('input',updatePrice);
+function updatePrice(){
+    let qty = qtyToBuy.value * 2;
+    let size = sizeToBuy.value * 4;
+    priceTotal.innerHTML = "Price: $" + (size * qty).toFixed(2);
+}
+
+//.innerHTML = renderCoffees(coffees);
