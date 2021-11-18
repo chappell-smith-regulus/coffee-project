@@ -55,7 +55,12 @@ header {
     height: 248px;
     padding-top: 8em;
 }
-
+form{
+    margin: 2em auto;
+    background-color: wheat;
+    border: 1px solid saddlebrown;
+    border-radius: 8px;
+}
 label, input, select {
     font-size: 18px;
     font-family: Arial, sans-serif;
@@ -155,7 +160,8 @@ h4 {
     width: 100%;
 }
 #functions {
-    margin: .5em;
+    margin: 0.5em;
+    padding: 1em;
     width: 40%;
     background-color: #DAA06D;
     border: 1px solid saddlebrown;

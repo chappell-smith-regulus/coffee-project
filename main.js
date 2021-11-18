@@ -127,11 +127,13 @@ banishTweet.addEventListener('click', function (event) {
     tweetyDiv.style.display = 'none';
 });
 const orderNow = document.querySelector('#order-now');
-const functionDiv = document.querySelector('#functions');
-const cofvefe = document.querySelector('#coffees');
-const coffeeDiv = document.querySelector('#coffee-container');
+const functionSrch = document.querySelector('#form-srch');
+const functionAdd = document.querySelector('#form-add');
+//const cofvefe = document.querySelector('#coffees');
+//const coffeeDiv = document.querySelector('#coffee-container');
 orderNow.addEventListener('click', function (event) {
-    functionDiv.style.display = 'none';
-    coffeeDiv.style.width = '100%';
-    //cofvefe.style.max-width = '952px';
+    functionSrch.style.display = 'none';
+    functionAdd.style.display = 'none';
+    orderNow.style.display = 'none';
+
 });
