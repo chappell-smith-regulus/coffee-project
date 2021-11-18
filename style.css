@@ -17,7 +17,8 @@ header {
     padding-top: 8em;
 }
 form{
-    margin: 2em auto;
+    margin: 1em auto;
+    padding: 2em .1em;
     background-color: wheat;
     border: 1px solid saddlebrown;
     border-radius: 8px;
@@ -52,7 +53,8 @@ h1 {
     opacity: 70%;
 }
 h2{
-    margin-bottom: .1em;
+    margin-top: 0;
+    margin-bottom: .5em;
     text-align: center;
 }
 h3, h4 {
@@ -70,6 +72,25 @@ img{
     width: 128px;
     border-radius: 10px;
     transition: height 2s, width 2s;
+}
+footer{
+    height: 84px;
+    margin-bottom: 2em;
+    padding: 0.5em;
+    background-color: #111111;
+    color: wheat;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+footer i{
+    color: antiquewhite;
+    margin: auto 2em;
+}
+footer a{
+    text-decoration: none;
+    color: antiquewhite;
 }
 /* Navbar Styles */
 .nav {
