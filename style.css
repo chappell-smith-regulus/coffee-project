@@ -9,46 +9,7 @@ body{
     margin: 0;
     background-color: var(--main-bg);
 }
-
-.nav {
-    background-color: lightgrey;
-}
 /* Elemental Styles */
-
-/* Navbar Styles */
-.navbar-list {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.nav a {
-    text-decoration: none;
-    color: black;
-    display: inline-block;
-    padding: .5em 1em;
-}
-.nav ul li:nth-child(4) {
-    margin-left: auto;
-}
-
-.list-item-about {
-    align-self: center;
-}
-
-.list-item-order {
-    align-self: center;
-}
-
-.list-item-sign {
-    align-self: center;
-}
-
-.link-coffee {
-    font-family: 'Amatic SC', cursive;
-    font-size: 20px;
-}
-
 header {
     background-image: url("/img/coffee-banner.jpeg");
     background-size: cover;
@@ -62,14 +23,13 @@ form{
     border-radius: 8px;
 }
 label, input, select {
-    font-size: 18px;
+    font-size: 16px;
     font-family: Arial, sans-serif;
     margin: .5em;
 }
 input, select{
     border-radius: 6px;
 }
-
 p {
     margin: 0;
     padding: 0.1em;
@@ -93,6 +53,7 @@ h1 {
 }
 h2{
     margin-bottom: .1em;
+    text-align: center;
 }
 h3, h4 {
     display: inline;
@@ -104,11 +65,57 @@ h3 {
 h4 {
     line-height: 3.5em;
 }
+img{
+    height: 128px;
+    width: 128px;
+    border-radius: 10px;
+    transition: height 2s, width 2s;
+}
+/* Navbar Styles */
+.nav {
+    background-color: lightgrey;
+}
+.navbar-list {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.nav a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    margin: .1em 2em;
+    padding: .25em 1em;
+    line-height: 2em;
+}
+a{
+    border-radius: 8px;
+    transition: background-color 2s, font-weight 2s;
+}
+a:hover{
+    background-color: dimgray;
+    font-weight: bold;
+}
+#list-item-coffee{
+    font-family: 'Amatic SC', cursive;
+    font-size: 28px;
+    margin-top: .1em !important;
+    padding: 0.1em !important;
+    line-height: 1em !important;
+}
+/* Main Content-Class Styling */
 .content {
-    margin: 0 auto;
+    margin: .25em;
     border-radius: 4px;
     text-align: center;
-    flex-basis: 100%;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .my-inputs{
     width: 50%;
@@ -118,7 +125,7 @@ h4 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 272px;
+    width: 248px;
     height: 56px;
     background-color: lightgoldenrodyellow;
     border: 1px solid saddlebrown;
@@ -151,7 +158,7 @@ h4 {
 }
 /* ID Styling - Containers, Tweet, Coffee container and Individual Coffees */
 #main-content {
-    max-width: 972px;
+    max-width: 1024px;
     margin: 0 auto;
     background-color: wheat;
 }
@@ -160,22 +167,22 @@ h4 {
     width: 100%;
 }
 #functions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
     margin: 0.5em;
     padding: 1em;
-    width: 40%;
+    width: 55%;
     background-color: #DAA06D;
     border: 1px solid saddlebrown;
     border-radius: 8px;
-}
-#coffees {
-    margin-top: 1em;
-    background-color: ;
 }
 #coffee-container{
     width: 60%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 #coffees{
     margin: .5em auto;
@@ -183,9 +190,9 @@ h4 {
     flex-direction: row;
     max-width: 548px;
     justify-content: flex-start;
-    align-content: flex-start;
     flex-wrap: wrap;
 }
+/* Special IDs below: Related to Hovers, Hidden Divs for forms, functions, or inner HTML editing */
 #twitter-fixed{
     position: fixed;
     z-index: 2;
@@ -202,19 +209,49 @@ h4 {
     text-decoration: underline;
     color: black;
 }
-#order-now{
-    margin: 1em;
-    font-size: 36px;
-    padding: .25em;
-    border: solid tomato 2px;
+#coffee-name{
+    width: 60%;
+}
+#size-guide{
+    display: none;
+    background-color: lightgoldenrodyellow;
+    border: 1px solid saddlebrown;
     border-radius: 8px;
-    background-color: lightblue;
+    padding: 1em;
+    margin: .25em;
+}
+#price-total{
+    font-weight: bold;
+    font-size: 24px;
+}
+#size-descript{
+    font-size: 18px;
+    padding: 1em;
+    text-indent: 20px;
+}
+#order-form{
+    display: none;
+}
+#back-to-search{
+    display: none;
+}
+.spec-buttons{
+    margin: 1em;
+    font-size: 28px;
+    padding: .25em;
+    border: solid saddlebrown 2px;
+    border-radius: 8px;
+    background-color: lightgoldenrodyellow;
     text-align: center;
     transition: width 2s, height 2s, background-color 2s, color 2s, padding 2s, margin 2s;
 }
-#order-now:hover{
+.spec-buttons:hover{
     margin: .5em;
     padding: 1em;
     color: white;
-    background-color: red;
+    background-color: saddlebrown;
+}
+img:hover{
+    height: 148px;
+    width: 148px;
 }
