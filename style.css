@@ -177,7 +177,7 @@ a:hover{
     background-color: #5C4033;
     color: #DAA06D;
 }
-/* ID Styling - Containers, Tweet, Coffee container and Individual Coffees */
+/* ID Styling - Containers, Tweet, Coffee container */
 #main-content {
     max-width: 1024px;
     margin: 0 auto;
@@ -213,7 +213,7 @@ a:hover{
     justify-content: flex-start;
     flex-wrap: wrap;
 }
-/* Special IDs below: Related to Hovers, Hidden Divs for forms, functions, or inner HTML editing */
+/* Special IDs below: Related to Hovers, Buttons, Hidden Divs for forms, functions, or inner HTML editing */
 #twitter-fixed{
     position: fixed;
     z-index: 2;
