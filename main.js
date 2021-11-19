@@ -2,6 +2,7 @@
 var userSearch = '';
 
 function renderCoffee(coffee) {
+    // Original function refactored to a switch based on Roast Type to allow for roast-specific styling of coffee display
     switch(coffee.roast){
         case "light":
             var html = '<div class="coffee light">';
@@ -85,7 +86,6 @@ addCoffee.addEventListener('click', function (event) {
     event.preventDefault()
     coffeeAdd();
 });
-
 function coffeeAdd () {
     let coffeeNameLC = document.querySelector('#add-coffee').value.toLowerCase();
     let coffeeName = capitalizeNames(coffeeNameLC);
@@ -96,7 +96,6 @@ function coffeeAdd () {
     console.log(coffees);
     updateCoffees();
 }
-
 function capitalizeNames(string){
     var name = string.split(' ');
     var secondWord = '';
@@ -120,13 +119,18 @@ window.onload = function(){
 
 // All following media Queries and event listeners are for display-switching for the twitter pop-up
 // order form, and coffee size descriptions.
+// Twitter Hide Listener
 const banishTweet = document.querySelector('#dismissal');
 const tweetyDiv = document.querySelector('#twitter-fixed');
 banishTweet.addEventListener('click', function (event) {
     tweetyDiv.style.display = 'none';
 });
 
-
+// Form listeners
+// Displays the order form and images, size descriptions, as well as hiding the
+// default shown forms (search/filter and add coffee)
+// Currently more complicated than it needs to be, but allows for compartmentalization
+// if further changes are made to parent divs
 const orderNow = document.querySelector('#order-now');
 const functionSrch = document.querySelector('#form-srch');
 const functionAdd = document.querySelector('#form-add');
@@ -137,6 +141,8 @@ const bigImg = document.querySelector('#big-coffee');
 const hugeImg = document.querySelector('#huge-coffee');
 const galonImg = document.querySelector('#galon-coffee');
 const sizeDescription = document.querySelector('#size-descript');
+
+// First Button (CAFFEINATE!) that hides previous forms and shows order form
 orderNow.addEventListener('click', function (event) {
     functionSrch.style.display = 'none';
     functionAdd.style.display = 'none';
@@ -145,6 +151,7 @@ orderNow.addEventListener('click', function (event) {
     backButton.style.display = 'block';
     sizeGuide.style.display = 'block';
 });
+// Second Button, hides order form and size images and shows search/add forms
 backButton.addEventListener('click', function (event) {
     functionSrch.style.display = 'block';
     functionAdd.style.display = 'block';
@@ -153,6 +160,8 @@ backButton.addEventListener('click', function (event) {
     backButton.style.display = 'none';
     sizeGuide.style.display = 'none'
 });
+
+// Images for each size will display their size description on 'click'.
 bigImg.addEventListener('click', function (event) {
     sizeDescription.innerHTML = "Our Smallest Coffee, the 32 ounce 'Big', is recommended as the maximum size " +
         "for people with heart conditions or other underlying health issues, for that great KICK! you need in " +
@@ -170,6 +179,7 @@ galonImg.addEventListener('click', function (event) {
         " to-go, or in our trademark Easy-Share-Bowl Mugs";
 });
 
+// Exorbitant Price calculator and display function
 var priceTotal = document.querySelector('#price-total');
 var sizeToBuy = document.querySelector('#coffee-size');
 var qtyToBuy = document.querySelector('#quantity');
@@ -177,8 +187,6 @@ sizeToBuy.addEventListener('input', updatePrice);
 qtyToBuy.addEventListener('input',updatePrice);
 function updatePrice(){
     let qty = qtyToBuy.value * 2;
-    let size = sizeToBuy.value * 4;
+    let size = sizeToBuy.value * 3;
     priceTotal.innerHTML = "Price: $" + (size * qty).toFixed(2);
 }
-
-//.innerHTML = renderCoffees(coffees);

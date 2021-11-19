@@ -3,16 +3,62 @@ Changelog<br>
 All notable changes to this project will be documented in this file.
 
 
-## [Unreleased]
-## [1.1.2] - 2021-11-14
+## [Release Ready]
+## [Unrealeased]
+## [2.0.0] - 2021-11-19
+### Pre-Released
+- Published repository to instructors and class for review.
+
 ### Changed
-- Render function for each individual Coffee now uses h3 and h4 elements.
-- Default table styling replaced with heading and body styles.
+- Price Values to be more acceptable.
+- Documentation to support further development.
+
+## [1.2.2] - 2021-11-18
+### Added
+- Order Coffee Form: to allow for future connection of order system.
+  - Includes Quantity, Coffee Name, and Size, with automatic price output.
+- function capitalizeNames: to capitalize the first letter of the name of added coffees
+  - Supports up to two-word coffee names 
+  - Will lowercase the rest of the string, only capitalizing the first letter of each word in the name.
+- JS listeners to allow for hiding and showing of forms and tweet.
+  - Default display shows search options, add coffee, tweet pop-up
+  - Default hides order form.
+  - Twitter embed is a separate display:none listener, the forms are joined by the same button.
+- Footer Div with basic styles and anchors.
+- Added Images to display Sizes Available with a description when clicked.
+- Comments inline in HTML, CSS, and JS to support continued development and access.
+### Changed
+- Navbar Styling to show center, to add hover styles.
+- Individual Coffee render sizes, form and input margins, other basic styles.
+
+
+## [1.2.1] - 2021-11-17
+### Added
+- Navigation Bar in HTML and CSS, with basic styles and links.
+- FontAwesome embed to allow for icons in the navbar, header and footer.
+- localStorage function to allow added coffees to persist through page refresh.
+- CSS to support styling of each individual coffee based on it's roast type.
+- Twitter embed (widget.js and anchor:html) with fixed position.
+- Background Image for the Header
+### Changed
+- Additional changes to the renderCoffee function, utilizing a switch to add a class to each coffee based on roast.
+- CSS styling of each coffee and the entire coffees container to enhance visual.
+
+## [1.2.0] - 2021-11-16
+### Added
+- Form Functionality to Add Coffee, and pushing Added Coffees to the coffees Array
+### Changed
+- Added a default for the user search string, to allow rendering coffees if user filters by roast without having any text-search input.
+
+## [1.1.2] - 2021-11-14
 ### Added
 - CSS styling for general elements, flex containers, forms.
 - Form for adding new coffee added (not yet functional through JS)
+### Changed
+- Render function for each individual Coffee now uses h3 and h4 elements.
+- Default table styling replaced with heading and body styles.
 
-## [1.1.1] - 2021-10-20
+## [1.1.1] - 2021-10-21
 ### Changed
 - List now updates immediately on input of either search/filter option.
 ### Removed
